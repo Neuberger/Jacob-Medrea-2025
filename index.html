@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta content="Jacob Medrea - Official Site" name="description"/>
+    <meta content="en_US" property="og:locale"/>
+    <meta content="website" property="og:type"/>
+    <meta content="Jacob Medrea - Official Site" property="og:title"/>
+    <meta content="Jacob Medrea - Official Site" property="og:description"/>
+    <meta content="" property="og:url"/>
+    <meta content="" property="og:image"/>
+    <meta content="Jacob Medrea - Official Site" property="og:site_name"/>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=1" name="viewport"/>
+    <title>Jacob Medrea - Official Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('./images/hero_mobil.jpg'); /* Standard-Bild für mobile Ansicht */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                background-image: url('./images/hero_desktop.jpg'); /* Desktop-Bild */
+            }
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between; /* Elemente horizontal verteilen */
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        /* Logo */
+        .header-logo {
+            width: 200px;
+        }
+
+        /* Navigation mittig platzieren */
+        .nav {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 50%; /* Vertikale Zentrierung */
+            left: 50%;
+            transform: translate(-50%, -50%); /* Korrektur für die exakte Mitte */
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Social Media Icons */
+        .social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social a {
+            color: black;
+            font-size: 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .social a:hover {
+            color: #f4f4f4;
+        }
+
+        /* Responsivität: Bei kleinerer Bildschirmgröße */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column; /* Alle Elemente untereinander anordnen */
+                align-items: center; /* Alle Elemente horizontal zentrieren */
+                justify-content: center;
+                gap: 10px; /* Abstand zwischen den Elementen */
+            }
+
+            .nav {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none; /* Navigation auf ihre normale Position setzen */
+            }
+
+            .social {
+                flex-direction: row;
+                justify-content: center; /* Social Media Icons horizontal zentrieren */
+                gap:20px;
+            }
+        }
+
+/* Allgemeine Stile für die Video-Galerie */
+.video {
+    padding: 20px 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Flexbox für die Video-Slider */
+.video-slider {
+    display: flex;
+    gap: 20px; /* Abstand zwischen den Videos */
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.video-item {
+    flex: 0 0 100%; /* Sicherstellen, dass nur 1 Video gleichzeitig angezeigt wird */
+    display: none; /* Alle Videos ausblenden, außer dem aktuell angezeigten */
+}
+
+/* Nur das aktive Video anzeigen */
+.video-item.active {
+    display: block;
+}
+
+/* Video Frame */
+.video-frame {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Navigation Buttons */
+.slider-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.slider-nav button {
+    background-color: #333;
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav button:hover {
+    background-color: #555;
+}
+
+/* Responsivität */
+@media (max-width: 1024px) {
+    .video-frame {
+        height: 250px; /* Kleinere Höhe auf Tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .video-slider {
+        flex-direction: column; /* Videos untereinander anordnen */
+        align-items: center;
+    }
+
+    .video-frame {
+        width: 100%; /* Videos nehmen die gesamte Breite des Containers ein */
+        height: 200px; /* Kleinere Höhe auf mobilen Geräten */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-frame {
+        height: 180px; /* Noch kleinere Höhe auf sehr kleinen Geräten */
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<main id="main">
+    <section class="hero">
+        <header>
+            <div class="nav-container">
+                <img src="./images/Logo.png" alt="Logo" width="150" class="header-logo">
+                <ul class="nav">
+                    <li><a href="#videos">VIDEOS</a></li>
+                    <li><a href="#music">MUSIC</a></li>
+                    <li><a href="#tour">TOUR</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <div class="social">
+                    <a href='https://www.youtube.com/@JacobMedrea' aria-label='youtube' target='_blank'>
+                        <i class='fab fa-youtube'></i>
+                    </a>
+                    <a href='https://www.instagram.com/medreamusic/' aria-label='instagram' target='_blank'>
+                        <i class='fab fa-instagram'></i>
+                    </a>
+                    <a href='https://www.facebook.com/medreamusic/?locale=de_DE' aria-label='facebook' target='_blank'>
+                        <i class='fab fa-facebook-f'></i>
+                    </a>
+                    <a href='https://www.tiktok.com/@jacobmedrea' aria-label='tiktok' target='_blank'>
+                        <i class='fab fa-tiktok'></i>
+                    </a>
+                    <a href="https://www.twitch.tv/jacobmedreamusic" aria-label="twitch" target="_blank">
+                        <i class="fab fa-twitch"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section id="videos" class="video">
+        <div class="container">
+            <div class="video-slider">
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=2kssACeKJEQ&ab_channel=JacobMedrea" target="_blank">
+                        <iframe class="video-frame" src="https://www.youtube.com/watch?v=2kssACeKJEQ&ab_channel=JacobMedrea" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </a>
+                </div>
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=BOyO8sZOaOQ" target="_blank">
+                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/BOyO8sZOaOQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </a>
+                </div>
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=-vXYb6Utp4E" target="_blank">
+                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/-vXYb6Utp4E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </a>
+                </div>
+                <div class="video-item">
+                    <a href="https://www.youtube.com/watch?v=K-rtCvjKtnc" target="_blank">
+                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/K-rtCvjKtnc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </a>
+                </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <div class="slider-nav">
+                <button class="prev" onclick="changeVideo(-1)">&#10094;</button>
+                <button class="next" onclick="changeVideo(1)">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
