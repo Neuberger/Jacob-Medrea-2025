@@ -27,7 +27,7 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            background-image: url('./images/hero_mobil.jpg'); /* Standard-Bild für mobile Ansicht */
+            background-image: url('./hero_mobil.jpg'); /* Angepasster Pfad */
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                background-image: url('./images/hero_desktop.jpg'); /* Desktop-Bild */
+                background-image: url('./hero_desktop.jpg'); /* Angepasster Pfad */
             }
         }
 
@@ -47,7 +47,7 @@
             z-index: 1;
             padding: 20px;
             display: flex;
-            justify-content: space-between; /* Elemente horizontal verteilen */
+            justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
         }
@@ -72,9 +72,9 @@
             padding: 0;
             margin: 0;
             position: absolute;
-            top: 50%; /* Vertikale Zentrierung */
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Korrektur für die exakte Mitte */
+            transform: translate(-50%, -50%);
         }
 
         .nav a {
@@ -106,111 +106,106 @@
         /* Responsivität: Bei kleinerer Bildschirmgröße */
         @media (max-width: 768px) {
             .nav-container {
-                flex-direction: column; /* Alle Elemente untereinander anordnen */
-                align-items: center; /* Alle Elemente horizontal zentrieren */
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
-                gap: 10px; /* Abstand zwischen den Elementen */
+                gap: 10px;
             }
 
             .nav {
                 position: relative;
                 top: auto;
                 left: auto;
-                transform: none; /* Navigation auf ihre normale Position setzen */
+                transform: none;
             }
 
             .social {
                 flex-direction: row;
-                justify-content: center; /* Social Media Icons horizontal zentrieren */
-                gap:20px;
+                justify-content: center;
+                gap: 20px;
             }
         }
 
-/* Allgemeine Stile für die Video-Galerie */
-.video {
-    padding: 20px 0;
-    background-color: #f4f4f4;
-}
+        /* Video-Galerie */
+        .video {
+            padding: 20px 0;
+            background-color: #f4f4f4;
+        }
 
-.container {
-    width: 90%;
-    margin: 0 auto;
-}
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
 
-/* Flexbox für die Video-Slider */
-.video-slider {
-    display: flex;
-    gap: 20px; /* Abstand zwischen den Videos */
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
+        /* Flexbox für die Video-Slider */
+        .video-slider {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
 
-.video-item {
-    flex: 0 0 100%; /* Sicherstellen, dass nur 1 Video gleichzeitig angezeigt wird */
-    display: none; /* Alle Videos ausblenden, außer dem aktuell angezeigten */
-}
+        .video-item {
+            flex: 0 0 100%;
+            display: none;
+        }
 
-/* Nur das aktive Video anzeigen */
-.video-item.active {
-    display: block;
-}
+        .video-item.active {
+            display: block;
+        }
 
-/* Video Frame */
-.video-frame {
-    width: 100%;
-    height: 315px;
-    border: none;
-    border-radius: 8px;
-}
+        .video-frame {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+        }
 
-/* Navigation Buttons */
-.slider-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
+        /* Navigation Buttons */
+        .slider-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
 
-.slider-nav button {
-    background-color: #333;
-    color: white;
-    font-size: 30px;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .slider-nav button {
+            background-color: #333;
+            color: white;
+            font-size: 30px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.slider-nav button:hover {
-    background-color: #555;
-}
+        .slider-nav button:hover {
+            background-color: #555;
+        }
 
-/* Responsivität */
-@media (max-width: 1024px) {
-    .video-frame {
-        height: 250px; /* Kleinere Höhe auf Tablets */
-    }
-}
+        /* Responsivität */
+        @media (max-width: 1024px) {
+            .video-frame {
+                height: 250px;
+            }
+        }
 
-@media (max-width: 768px) {
-    .video-slider {
-        flex-direction: column; /* Videos untereinander anordnen */
-        align-items: center;
-    }
+        @media (max-width: 768px) {
+            .video-slider {
+                flex-direction: column;
+            }
 
-    .video-frame {
-        width: 100%; /* Videos nehmen die gesamte Breite des Containers ein */
-        height: 200px; /* Kleinere Höhe auf mobilen Geräten */
-    }
-}
+            .video-frame {
+                width: 100%;
+                height: 200px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .video-frame {
-        height: 180px; /* Noch kleinere Höhe auf sehr kleinen Geräten */
-    }
-}
-
-
+        @media (max-width: 480px) {
+            .video-frame {
+                height: 180px;
+            }
+        }
 
     </style>
 </head>
@@ -220,7 +215,7 @@
     <section class="hero">
         <header>
             <div class="nav-container">
-                <img src="./images/Logo.png" alt="Logo" width="150" class="header-logo">
+                <img src="./Logo.png" alt="Logo" width="150" class="header-logo"> <!-- Angepasster Pfad -->
                 <ul class="nav">
                     <li><a href="#videos">VIDEOS</a></li>
                     <li><a href="#music">MUSIC</a></li>
@@ -251,7 +246,7 @@
     <section id="videos" class="video">
         <div class="container">
             <div class="video-slider">
-                <div class="video-item">
+                <div class="video-item active">
                     <a href="https://www.youtube.com/watch?v=2kssACeKJEQ&ab_channel=JacobMedrea" target="_blank">
                         <iframe class="video-frame" src="https://www.youtube.com/watch?v=2kssACeKJEQ&ab_channel=JacobMedrea" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </a>
@@ -263,28 +258,4 @@
                 </div>
                 <div class="video-item">
                     <a href="https://www.youtube.com/watch?v=-vXYb6Utp4E" target="_blank">
-                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/-vXYb6Utp4E?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </a>
-                </div>
-                <div class="video-item">
-                    <a href="https://www.youtube.com/watch?v=K-rtCvjKtnc" target="_blank">
-                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/K-rtCvjKtnc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </a>
-                </div>
-            </div>
-            <!-- Navigation Buttons -->
-            <div class="slider-nav">
-                <button class="prev" onclick="changeVideo(-1)">&#10094;</button>
-                <button class="next" onclick="changeVideo(1)">&#10095;</button>
-            </div>
-        </div>
-    </section>
-    
-
-</main>
-
-
-<script src="app.js"></script>
-
-</body>
-</html>
+                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/-vXYb6Utp4E?controls=0" title="YouTube video player"
