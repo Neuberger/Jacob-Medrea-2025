@@ -23,7 +23,7 @@ h2 {
 .hero {
     width: 100vw;
     height: 100vh;
-    background-image: url('./images/hero_mobil.jpg');
+    background-image: url('https://github.com/Neuberger/Jacob-Medrea-2025/blob/main/hero_mobil.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@ h2 {
 
 @media (min-width: 768px) {
     .hero {
-        background-image: url('./images/hero_desktop.jpg');
+        background-image: url('https://github.com/Neuberger/Jacob-Medrea-2025/blob/main/hero_desktop.jpg');
     }
 }
 
