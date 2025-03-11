@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=1"/>
+    <title>Jacob Medrea - Official Site</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+
+<main>
+    <section class="hero">
+        <header>
+            <img src="./images/Logo.png" alt="Logo" class="header-logo">
+            <ul class="nav">
+                <li><a href="#videos">VIDEOS</a></li>
+                <li><a href="#music">MUSIC</a></li>
+                <li><a href="#tour">TOUR</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <div class="social">
+                <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/medreamusic/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/medreamusic" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i class="fab fa-twitch"></i></a>
+            </div>
+        </header>
+    </section>
+
+    <!-- Video Gallery -->
+    <section id="videos">
+        <h2>VIDEOS</h2>
+        <div class="black-background">
+            <div class="video-slider">
+                <div class="video-wrapper">
+                    <div class="video-item">
+                        <iframe class="video-frame" src="https://www.youtube.com/embed/XMYuDZsWT48?si=gOZsSz09aMZvhJ9g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/2kssACeKJEQ?controls=0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item">
+                        <iframe class="video-frame" src="https://www.youtube.com/embed/fJPMNd-Il_o?si=2Sp2eKbIAdR4xD3E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button id="prev">&#10094;</button>
+                    <button id="next">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Gallery -->
+    <section id="music">
+        <h2>MUSIC</h2>
+        <div class="gallery">
+            <!-- Großes Bild als Link -->
+            <div class="large-image">
+                <a href="https://soundcloud.com/jacobmedrea/somebody-that-i-used-to-know-is-a-cop?si=d9649d4206c643c7a6b9ff54f1764f7a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">
+                    <img src="./images/thumbnail_police.jpg" alt="Großes Bild">
+                </a>
+            </div>
+
+            <!-- Container für die kleinen Bilder rechts -->
+            <div class="small-images">
+                <a href="https://example.com/link1" target="_blank" class="small-image-link">
+                    <div class="small-image">
+                        <img src="./images/thumbnail_onyx.jpg" alt="Kleines Bild 1">
+                    </div>
+                </a>
+                <a href="https://example.com/link2" target="_blank" class="small-image-link">
+                    <div class="small-image">
+                        <img src="./images/thumbnail_jacob.jpg" alt="Kleines Bild 2">
+                    </div>
+                </a>
+                <a href="https://example.com/link3" target="_blank" class="small-image-link">
+                    <div class="small-image">
+                        <img src="./images/thumbnail_clouds.jpg" alt="Kleines Bild 3">
+                    </div>
+                </a>
+                <a href="https://example.com/link4" target="_blank" class="small-image-link">
+                    <div class="small-image">
+                        <img src="./images/thumbnail_birds.jpg" alt="Kleines Bild 4">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="iframe-container">
+        <iframe src="https://open.spotify.com/embed/track/2iwCidG1bPjfxpTdSijlpb?utm_source=generator&theme=0" 
+                width="90%" height="152" 
+                frameborder="0" allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy"></iframe>
+    </div>
+    <!-- Kontaktformular-Sektion -->
+    <section id="contact">
+        <div class="contact-container">
+            <h2>SIGN UP FOR UPDATES </h2>
+            <form class="contact-form" action="contact.php" method="POST">
+                <input type="text" name="first-name" placeholder="FIRST NAME" required>
+                <input type="text" name="last-name" placeholder="LAST NAME" required>
+                <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
+                <button type="submit" class="submit-button">Absenden</button> <!-- Button hier statt input -->
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const videoWrapper = document.querySelector(".video-wrapper");
+    const videoItems = document.querySelectorAll(".video-item");
+    let index = 0;
+
+    function updateSliderPosition() {
+        videoWrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById("prev").addEventListener("click", function () {
+        index = (index - 1 + videoItems.length) % videoItems.length;
+        updateSliderPosition();
+    });
+
+    document.getElementById("next").addEventListener("click", function () {
+        index = (index + 1) % videoItems.length;
+        updateSliderPosition();
+    });
+});
+</script>
+
+</body>
+</html>
