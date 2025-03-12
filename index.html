@@ -21,11 +21,14 @@ body {
 /* Überschrift */
 h2 {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     position: relative;
     top: 20px;
-    margin-left: 30px;
+    text-align: center; /* Optional: falls der Text auch zentriert sein soll */
+    margin-top: 40px;
+    margin-bottom: 40px;;
 }
+
 
 /* ==========================
    HERO SECTION (Startbereich)
@@ -33,7 +36,7 @@ h2 {
 .hero {
     width: 100vw;
     height: 100vh;
-    background-image: url('hero_mobil.jpg');
+    background-image: url('./images/hero_mobil.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -41,7 +44,7 @@ h2 {
 
 @media (min-width: 768px) {
     .hero {
-        background-image: url('hero_desktop.jpg');
+        background-image: url('./images/hero_desktop.jpg');
     }
 }
 
@@ -60,39 +63,42 @@ header {
 }
 
 .header-logo {
-    max-width: 375px;
+    max-width: 300px;
+    margin-left: 100px;
 }
 
 /* ==========================
    NAVIGATION (Menü)
    ========================== */
-.nav {
-    display: flex;
-    list-style: none;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.nav a {
-    text-decoration: none;
-    color: black;
-    font-weight: 200;
-}
-
-.nav a:hover {
-    color: white;
-}
+   .nav {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .nav li {
+            white-space: nowrap;
+        }
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-weight: 200;
+        }
+        .nav a:hover {
+            color: white;
+        }
 
 /* ==========================
    SOCIAL ICONS (Soziale Medien)
    ========================== */
 .social {
     display: flex;
-    gap: 10px;
-    margin-right: 40px;
+    gap: 15px;
+    margin-right: 100px;
     justify-content: center;
 }
 
@@ -118,11 +124,12 @@ header {
 .video-slider {
     position: relative;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
     background-color: black;
+    align-items: center;
 }
 
 .video-wrapper {
@@ -152,17 +159,18 @@ header {
 }
 
 .slider-nav button {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     border: none;
     padding: 10px 15px;
     font-size: 20px;
     cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .slider-nav button:hover {
-    background: rgba(0, 0, 0, 0.0);
-    font-size: 30px;
+    font-weight: bolder;
 }
 
 #prev {
@@ -176,13 +184,14 @@ header {
 /* ==========================
    GALLERY (Galerie)
    ========================== */
-.gallery {            
-    display: flex;
-    margin: 20px;
-    margin-bottom: 0;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
+   .gallery {            
+    width: 90%;
+    max-width: 1000px; /* Breite des Containers */
+    display: flex; /* Flexbox-Layout */
+    margin: 0 auto; /* Horizontale Zentrierung des Containers */
+    margin-bottom: 20px; /* Abstand nach unten */
+    align-items: center; /* Vertikale Zentrierung der Inhalte */
+    justify-content: center; /* Horizontale Zentrierung der Inhalte */
 }
 
 /* Großes Bild (links) */
@@ -207,7 +216,7 @@ header {
 
 /* Hover-Effekt für das große Bild */
 .large-image:hover::after {
-    content: 'Somebody That I Used To Know';
+    content: 'Somebody That I Used To Know [2023]';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -216,7 +225,7 @@ header {
     color: #fff;
     padding: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -240,6 +249,7 @@ header {
     position: relative;
 }
 
+/* Kleine Bilder - Image Container */
 .small-image img {
     position: absolute;
     width: 100%;
@@ -251,7 +261,7 @@ header {
 
 /* Hover-Effekt für kleine Bilder */
 .small-image:hover::after {
-    content: 'Song Title';
+    content: attr(data-title); /* Dynamischer Songtitel */
     position: absolute;
     top: 0;
     left: 0;
@@ -259,7 +269,7 @@ header {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     display: flex;
@@ -267,12 +277,14 @@ header {
     align-items: center;
 }
 
+
 /* ==========================
    IFRAME CONTAINER (z.B. für eingebettete Videos)
    ========================== */
-.iframe-container {
-    width: 100%;
-    margin: 20px;
+   .iframe-container {
+    width: 90%;
+    max-width: 1000px; /* oder eine feste Breite wie 600px, falls gewünscht */
+    margin: 0px auto; /* Automatischer horizontaler Abstand für Zentrierung */
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -286,22 +298,32 @@ iframe {
 /* ==========================
    KONTAKTFORMULAR
    ========================== */
-#contact {
-    padding: 10px 0;
+   #contact {
+    padding: 10px 60px;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto; /* Automatisches Zentrieren des Containers */
+}
+
+
+.contact-wrapper {
+    display: flex; /* Flexbox für nebeneinander anordnen */
+    justify-content: space-between; /* Platz zwischen den Elementen */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 20px; /* Abstand zwischen Formular und Bild */
 }
 
 .contact-container {
-    max-width: 100%;
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 60%; /* Formular nimmt maximal 40% der Breite ein */
+    width: 100%;
+    padding: 0px;
+    background-color: black; /* Optional: Hintergrundfarbe */
 }
 
 .contact-container h2 {
-    font-size: 36px;
+    font-size: 30px;
     color: white;
-    text-align: center;
     margin-bottom: 60px;
 }
 
@@ -313,7 +335,7 @@ iframe {
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
+    width: 90%;
     padding: 15px;
     background-color: black;
     border: none;
@@ -321,6 +343,7 @@ iframe {
     color: white;
     font-size: 16px;
     transition: border 0.3s ease-in-out;
+    resize: none; /* Verhindert manuelles Vergrößern des Textbereichs */
 }
 
 .contact-form input:focus,
@@ -330,22 +353,82 @@ iframe {
     outline: none;
 }
 
+::placeholder {
+    font-family: Arial, Helvetica, sans-serif; /* Erbt die Schriftart des umgebenden Elements */
+    color: white; /* Optional: Farbe anpassen, falls nötig */
+    font-size: 16px; /* Falls Schriftgröße angepasst werden muss */
+    opacity: 1; /* Stellt sicher, dass der Platzhalter sichtbar bleibt */
+}
+
 /* Submit-Button */
 .submit-button {
-    width: 100%;
-    font-size: 24px;
-    padding: 40px 20px;
+    width: 50%;
+    font-size: 20px;
+    padding: 20px 20px;
+    margin: 20px auto 0; /* Zentriert den Button horizontal und fügt einen Abstand nach oben hinzu */
     border: none;
-    color: white;
-    background: transparent;
-    outline: none;
+    color: black;
+    background: white;
     cursor: pointer;
     transition: border 0.3s ease-in-out;
+    display: block; /* Macht den Button zu einem Block-Element */
 }
 
 .submit-button:hover {
-    border: 1px solid white;
+    color: white;
+    background: black;
 }
+
+/* ==========================
+   CONTACT IMAGE
+   ========================== */
+.contact-image img {
+    width: 80%; /* Bild auf die verfügbare Breite skalieren */
+    max-width: 800px; /* Maximale Breite für das Bild */
+    margin-top: 0px;
+    margin-right:200px;
+    margin-left: 60px; /* Bild nach rechts schieben */
+    margin-top:40px;
+    height: auto;
+    object-fit: cover; /* Bild füllt den Container aus */
+    transform: rotate(3deg); /* Bild um 30 Grad im Uhrzeigersinn drehen */
+}
+
+/* ==========================
+   FOOTER: SOCIAL ICONS (Soziale Medien)
+   ========================== */
+   .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+}
+
+    .logo img {
+    max-width: 60%;
+    height: auto;
+}
+   .footer-social {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+    .footer-social a {
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.copyright {
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+}   
+
 
 /* ==========================
    RESPONSIVE DESIGN (für mobile Geräte)
@@ -356,6 +439,9 @@ iframe {
         align-items: center;
     }
 
+    .header-logo {
+        margin-left: 0px;
+    }
     .nav {
         flex-direction: row;
         gap: 15px;
@@ -367,7 +453,7 @@ iframe {
         justify-content: center;
         margin-top: 10px;
         margin-right: 0px;
-        gap: 20px;
+        gap: 15px;
     }
 
     .video-item {
@@ -412,7 +498,24 @@ iframe {
     .submit-button {
         font-size: 16px;
     }
+    .contact-wrapper {
+        flex-direction: column-reverse; /* Bild über das Formular setzen */
+        align-items: center;
+    }
+
+    .contact-container {
+        width: 90%; /* Formular breiter machen auf mobilen Geräten */
+        max-width: 100%;
+    }
+
+    .contact-image img {
+        width: 80%;
+        max-width: 400px;
+        align-items: center;
+    }
 }
+
+
 </style>
 
 </head>
@@ -421,11 +524,11 @@ iframe {
 <main>
     <section class="hero">
         <header>
-            <img src="Logo.png" alt="Logo" class="header-logo">
+            <img src="./images/Logo-2.png" alt="Logo" class="header-logo">
             <ul class="nav">
                 <li><a href="#videos">VIDEOS</a></li>
                 <li><a href="#music">MUSIC</a></li>
-                <li><a href="#tour">TOUR</a></li>
+                <li><a href="#tour">LIVE</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="social">
@@ -469,45 +572,48 @@ iframe {
             <!-- Großes Bild als Link -->
             <div class="large-image">
                 <a href="https://soundcloud.com/jacobmedrea/somebody-that-i-used-to-know-is-a-cop?si=d9649d4206c643c7a6b9ff54f1764f7a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">
-                    <img src="thumbnail_police.jpg" alt="Großes Bild">
+                    <img src="./images/thumbnail_police.jpg" alt="Großes Bild">
                 </a>
             </div>
 
-            <!-- Container für die kleinen Bilder rechts -->
-            <div class="small-images">
-                <a href="https://example.com/link1" target="_blank" class="small-image-link">
-                    <div class="small-image">
-                        <img src="thumbnail_onyx.jpg" alt="Kleines Bild 1">
-                    </div>
-                </a>
-                <a href="https://example.com/link2" target="_blank" class="small-image-link">
-                    <div class="small-image">
-                        <img src="thumbnail_jacob.jpg" alt="Kleines Bild 2">
-                    </div>
-                </a>
-                <a href="https://example.com/link3" target="_blank" class="small-image-link">
-                    <div class="small-image">
-                        <img src="thumbnail_clouds.jpg" alt="Kleines Bild 3">
-                    </div>
-                </a>
-                <a href="https://example.com/link4" target="_blank" class="small-image-link">
-                    <div class="small-image">
-                        <img src="thumbnail_birds.jpg" alt="Kleines Bild 4">
-                    </div>
-                </a>
+    <!-- Container für die kleinen Bilder rechts -->
+    <div class="small-images">
+        <a href="https://soundcloud.com/jacobmedrea/onyx-beat-ozone-13?si=94bf946c88c54a37a6cff5e33ecfdfe5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="small-image-link">
+            <div class="small-image" data-title="Pressure (Onyx) [2023]">
+                <img src="./images/thumbnail_onyx.jpg" alt="Onyx Beat - Song Thumbnail">
+            </div>
+        </a>
+        <a href="https://soundcloud.com/jacobmedrea/bring-the-smoke?si=0b4936ad27f94419afc73c1a71c903a1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="small-image-link">
+            <div class="small-image" data-title="Bring The Smoke [2024]">
+                <img src="./images/thumbnail_jacob.jpg" alt="Example Song 2 - Song Thumbnail">
+            </div>
+        </a>
+        <a href="https://soundcloud.com/jacobmedrea/castlesandwaves-1?si=0c0152a2c421493a83b7cae32502ace5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="small-image-link">
+            <div class="small-image" data-title="castlesandwaves [2021]">
+                <img src="./images/thumbnail_clouds.jpg" alt="Example Song 3 - Song Thumbnail">
+            </div>
+        </a>
+        <a href="https://soundcloud.com/jacobmedrea/the-things-2020-11?si=f2ce0c6825fa49b1950f32311bb71a4d&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="small-image-link">
+            <div class="small-image" data-title="The Things [2020]">
+                <img src="./images/thumbnail_birds.jpg" alt="Example Song 4 - Song Thumbnail">
+            </div>
+        </a>
+    </div>
+
             </div>
         </div>
     </section>
 
     <div class="iframe-container">
         <iframe src="https://open.spotify.com/embed/track/2iwCidG1bPjfxpTdSijlpb?utm_source=generator&theme=0" 
-                width="90%" height="152" 
+                width="90%" height="102" 
                 frameborder="0" allowfullscreen="" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy"></iframe>
     </div>
-    <!-- Kontaktformular-Sektion -->
-    <section id="contact">
+<!-- Kontaktformular-Sektion -->
+<section id="contact">
+    <div class="contact-wrapper">
         <div class="contact-container">
             <h2>SIGN UP FOR UPDATES </h2>
             <!-- Form action auf Formspree URL geändert -->
@@ -515,12 +621,31 @@ iframe {
                 <input type="text" name="first-name" placeholder="FIRST NAME" required>
                 <input type="text" name="last-name" placeholder="LAST NAME" required>
                 <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
+                <textarea name="message" placeholder="YOUR MESSAGE" rows="4" required></textarea> <!-- Neues Nachrichtenfeld -->
                 <button type="submit" class="submit-button">SUBMIT</button> <!-- Button bleibt -->
             </form>
         </div>
-    </section>
-
+        <div class="contact-image">
+            <img src="./images/contact.jpg" alt="Bild"> <!-- Ersetze 'dein-bild.jpg' mit dem tatsächlichen Bildpfad -->
+        </div>
+    </div>
+</section>
 </main>
+
+<footer>
+	<div class="footer">
+		<div class="logo">
+			<img src="./images/Logo-2-white.png" width="420" height="auto" alt="Jacob Medrea">
+			<div class='footer-social'>
+                <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/medreamusic/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/medreamusic" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i class="fab fa-twitch"></i></a>
+			</div>
+            <p class="copyright">&copy; 2024 Jacob Medrea. All rights reserved.</p>
+        </div>
+</footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
