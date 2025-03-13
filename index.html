@@ -123,8 +123,8 @@ header {
 
 .video-slider {
     position: relative;
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
+    max-width: 768px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
@@ -185,8 +185,8 @@ header {
    GALLERY (Galerie)
    ========================== */
    .gallery {            
-    width: 90%;
-    max-width: 1000px; /* Breite des Containers */
+    width: 100%;
+    max-width: 768px; /* Breite des Containers */
     display: flex; /* Flexbox-Layout */
     margin: 0 auto; /* Horizontale Zentrierung des Containers */
     margin-bottom: 20px; /* Abstand nach unten */
@@ -282,8 +282,8 @@ header {
    IFRAME CONTAINER (z.B. für eingebettete Videos)
    ========================== */
    .iframe-container {
-    width: 90%;
-    max-width: 1000px; /* oder eine feste Breite wie 600px, falls gewünscht */
+    width: 100%;
+    max-width: 768px; /* oder eine feste Breite wie 600px, falls gewünscht */
     margin: 0px auto; /* Automatischer horizontaler Abstand für Zentrierung */
     margin-bottom: 20px;
     display: flex;
@@ -299,10 +299,9 @@ iframe {
    KONTAKTFORMULAR
    ========================== */
    #contact {
-    padding: 10px 60px;
     align-items: center;
-    width: 90%;
-    max-width: 1000px;
+    width: 100%;
+    max-width: 768px;
     margin: 0 auto; /* Automatisches Zentrieren des Containers */
 }
 
@@ -315,7 +314,7 @@ iframe {
 }
 
 .contact-container {
-    max-width: 60%; /* Formular nimmt maximal 40% der Breite ein */
+    max-width: 768px; /* Formular nimmt maximal 40% der Breite ein */
     width: 100%;
     padding: 0px;
     background-color: black; /* Optional: Hintergrundfarbe */
@@ -383,8 +382,8 @@ iframe {
    CONTACT IMAGE
    ========================== */
 .contact-image img {
-    width: 80%; /* Bild auf die verfügbare Breite skalieren */
-    max-width: 800px; /* Maximale Breite für das Bild */
+    width: 100%; /* Bild auf die verfügbare Breite skalieren */
+    max-width: 768px; /* Maximale Breite für das Bild */
     margin-top: 0px;
     margin-right:200px;
     margin-left: 60px; /* Bild nach rechts schieben */
@@ -403,7 +402,7 @@ iframe {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 100px;
 }
 
     .logo img {
@@ -471,23 +470,19 @@ iframe {
         justify-content: center;
     }
 
-    .large-image, .small-images {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
     .large-image {
-        width: 100%;
+        width: 90%;
         padding-top: 100%;
         margin-left: auto;
         margin-right: auto;
     }
 
     .small-images {
-        display: grid;
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei gleich breite Spalten */
+    gap: 20px; /* Abstände zwischen den Elementen */
+    width: 90%;
+}
 
     .small-image {
         width: 100%;
@@ -510,9 +505,11 @@ iframe {
 
     .contact-image img {
         width: 80%;
-        max-width: 400px;
+        max-width: 350px;
         align-items: center;
     }
+
+
 }
 
 
@@ -643,7 +640,7 @@ iframe {
                 <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i class="fab fa-twitch"></i></a>
 			</div>
-            <p class="copyright">&copy; 2024 Jacob Medrea. All rights reserved.</p>
+            <p class="copyright">&copy; 2025 Jacob Medrea. All rights reserved.</p>
         </div>
 </footer>
 
@@ -666,6 +663,8 @@ document.addEventListener("DOMContentLoaded", function () {
         index = (index + 1) % videoItems.length;
         updateSliderPosition();
     });
+
+
 });
 </script>
 
