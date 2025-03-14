@@ -16,37 +16,114 @@ body {
     width: 100%;
     overflow-x: hidden;
     background-color: black;
-	background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.about-me {
-    position: relative;
-    width: 100%;
+#about {
+    width: 90%;
     max-width: 90%;
     margin: 0 auto;
-    overflow: hidden;
-    border-radius: 10px;
+}
+
+.about-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Bilder oben ausgerichtet */
+    margin-bottom: 20px; /* Abstand zwischen den Abschnitten */
+}
+
+/* Bilder nebeneinander */
+.about-portrait, .about-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.about-me p   {  
+.about-portrait img, .about-image img {
+    width: 100%; /* Bild passt sich dem Container an */
+    max-width: 60%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+/* Texte unter den Bildern - horizontal zentriert */
+.about-text, .about-me {
+    width: 45%;
     color: white;
-    text-align: justify;
-    line-height: 2.5;
-    font-size: 20px;
+    text-align: center;  /* Text wird zentriert */
+    line-height: 1.6;
+    font-size: 24px;
+}
+
+/* Container für die Textreihe unter den Bildern */
+.about-section-2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px; /* Abstand zwischen den Bild- und Textzeilen */
+}
+
+/* Responsive Anpassung für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .about-wrapper, .about-section-2 {
+        flex-direction: column;  /* Elemente untereinander anordnen */
+        align-items: center;       /* Inhalte zentrieren */
+    }
+
+    .about-portrait, .about-image, .about-text, .about-me {
+        width: 80%;
+    }
+
+    .about-portrait img, .about-image img {
+        width: 80%;
+    }
+}
+
+
+/* Responsivität für kleine Bildschirme */
+@media (max-width: 768px) {
+    .about-wrapper, .about-section-2 {
+        flex-direction: column;  /* Bilder und Text werden untereinander angezeigt */
+        align-items: center;  /* Zentriert die Elemente */
+    }
+
+    .about-portrait, .about-image, .about-me, .about-text {
+        width: 80%; /* Weniger Platz für die Elemente auf kleinen Bildschirmen */
+    }
+
+    .about-portrait img, .about-image img {
+        width: 80%; /* Bilder werden kleiner, um sie auf mobilen Geräten besser anzuzeigen */
+    }
+}
+
+
+
+.videos-text, .music-gallery-text {  
+    width: 50%;  /* Setzt die Breite des Absatzes */
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 100px;
+    color: white;
+    text-align: center;  /* Setzt den Text horizontal zentriert */
+    line-height: 1.6;
+    font-size: 30px;
+    margin-left: auto;  /* Zentriert den Block horizontal */
+    margin-right: auto;  /* Zentriert den Block horizontal */
+    font-style: italic;  /* Macht den Text kursiv */
 }
 
 /* Überschrift */
 h2 {
     color: white;
-    font-size: 30px;
+    font-size: 50px;
     position: relative;
     top: 20px;
     text-align: center; /* Optional: falls der Text auch zentriert sein soll */
-    margin-top: 40px;
-    margin-bottom: 40px;;
+    margin-top: 100px;
+    margin-bottom: 100px;;
 }
 
 
@@ -104,6 +181,7 @@ header {
             white-space: nowrap;
         }
         .nav a {
+            font-size: 20px;
             text-decoration: none;
             color: black;
             font-weight: 200;
@@ -115,7 +193,7 @@ header {
 /* ==========================
    SOCIAL ICONS (Soziale Medien)
    ========================== */
-.social {
+   .social {
     display: flex;
     gap: 15px;
     margin-right: 80px;
@@ -123,12 +201,68 @@ header {
 }
 
 .social a {
-    color: black;
-    font-size: 20px;
+    font-size: 30px;
+    color: black; /* Standardfarbe für Header-Icons */
+    transition: color 0.3s ease;
 }
 
-.social a:hover {
-    color: white;
+/* 🎨 HOVER-EFFEKTE (wie Footer) */
+
+/* YouTube */
+.social a[href*="youtube.com"]:hover {
+    color: #FF0000;
+}
+
+/* Instagram */
+.social a[href*="instagram.com"] {
+    background: transparent;
+}
+
+.social a[href*="instagram.com"]:hover {
+    color: transparent;
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Facebook */
+.social a[href*="facebook.com"]:hover {
+    color: #1877F2;
+}
+
+/* Twitch */
+.social a[href*="twitch.tv"]:hover {
+    color: #9146FF;
+}
+
+/* TikTok */
+.social a[href*="tiktok.com"] {
+    position: relative;
+    display: inline-block;
+}
+
+.social a[href*="tiktok.com"]::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tiktok-hover-2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility: hidden;
+    z-index: 1;
+}
+
+/* TikTok Hover */
+.social a[href*="tiktok.com"]:hover {
+    visibility: hidden;
+}
+
+.social a[href*="tiktok.com"]:hover::after {
+    visibility: visible;
 }
 
 /* ==========================
@@ -205,7 +339,7 @@ header {
    ========================== */
    .gallery {            
     width: 100%;
-    max-width: 90%; /* Breite des Containers */
+    max-width: 60%; /* Breite des Containers */
     display: flex; /* Flexbox-Layout */
     margin: 0 auto; /* Horizontale Zentrierung des Containers */
     margin-bottom: 20px; /* Abstand nach unten */
@@ -244,7 +378,7 @@ header {
     color: #fff;
     padding: 10px;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -288,7 +422,7 @@ header {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
     display: flex;
@@ -302,7 +436,7 @@ header {
    ========================== */
    .iframe-container {
     width: 100%;
-    max-width: 90%; /* oder eine feste Breite wie 600px, falls gewünscht */
+    max-width: 70%; /* oder eine feste Breite wie 600px, falls gewünscht */
     margin: 0px auto; /* Automatischer horizontaler Abstand für Zentrierung */
     margin-bottom: 20px;
     display: flex;
@@ -340,7 +474,7 @@ iframe {
 }
 
 .contact-container h2 {
-    font-size: 30px;
+    font-size: 50px;
     color: white;
     margin-bottom: 60px;
 }
@@ -374,14 +508,14 @@ iframe {
 ::placeholder {
     font-family: Arial, Helvetica, sans-serif; /* Erbt die Schriftart des umgebenden Elements */
     color: white; /* Optional: Farbe anpassen, falls nötig */
-    font-size: 16px; /* Falls Schriftgröße angepasst werden muss */
+    font-size: 24px; /* Falls Schriftgröße angepasst werden muss */
     opacity: 1; /* Stellt sicher, dass der Platzhalter sichtbar bleibt */
 }
 
 /* Submit-Button */
 .submit-button {
     width: 50%;
-    font-size: 20px;
+    font-size: 24px;
     padding: 20px 20px;
     margin: 20px auto 0; /* Zentriert den Button horizontal und fügt einen Abstand nach oben hinzu */
     border: none;
@@ -424,28 +558,106 @@ iframe {
     margin-top: 100px;
 }
 
-    .logo img {
+.logo img {
     max-width: 150px;
     height: auto;
 }
-   .footer-social {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+
+/* Grundstil für alle Icons */
+.footer-social a {
+    font-size: 30px; /* Größe des Icons */
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    transition: color 0.3s ease; /* Übergangseffekt für die Farbänderung */
 }
 
-    .footer-social a {
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
+/* Standardfarbe der Icons - Weiß */
+.footer-social i {
+    color: white; /* Alle Icons sind standardmäßig weiß */
+    display: inline-block;
 }
+
+/* Hintergrund für YouTube (YouTube-Rot) */
+#youtube:hover {
+    color: #FF0000; /* YouTube Rot */
+}
+
+/* Hintergrund für Instagram (Instagram-Gradient) */
+#instagram {
+    background: transparent; /* Keine Hintergrundfarbe beim normalen Zustand */
+    color: white; /* Standardfarbe der Icons - weiß */
+}
+
+#instagram:hover {
+    color: transparent; /* Icon wird transparent */
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); /* Instagram-Gradient */
+    -webkit-background-clip: text; /* Wendet den Gradient auf den Text (Icon) an */
+    background-clip: text; /* Wendet den Gradient auf den Text (Icon) an */
+}
+
+/* Hintergrund für Facebook (Facebook Blau) */
+#facebook:hover {
+    color: #1877F2; /* Facebook Blau */
+}
+
+/* Hintergrund für Twitch (Twitch Lila) */
+#twitch:hover {
+    color: #9146FF; /* Twitch Lila */
+}
+
+/* Standard TikTok-Icon (Font Awesome) */
+#tiktok {
+    position: relative;
+    display: inline-block;
+    font-size: 30px; /* Gleiche Font Awesome Icon-Größe */
+    color: #fff; /* Farbe des TikTok-Icons */
+}
+
+/* PNG-Bild wird als Hintergrundbild verwendet */
+#tiktok::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('tiktok-hover.png'); /* Dein PNG-Bild */
+    background-size: contain; /* Skaliert das PNG, sodass es innerhalb des Containers bleibt */
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility: hidden; /* Standardmäßig unsichtbar */
+    z-index: 1; /* PNG-Bild wird über dem TikTok-Icon angezeigt */
+}
+
+/* Wenn das TikTok-Icon gehovt wird */
+#tiktok:hover {
+    visibility: hidden; /* Das Font Awesome Icon wird unsichtbar */
+}
+
+/* Das PNG wird sichtbar, wenn das TikTok-Icon gehovt wird */
+#tiktok:hover::after {
+    visibility: visible; /* PNG wird sichtbar */
+}
+
+
+
+
 
 .copyright {
     color: white;
     text-align: center;
     font-size: 14px;
-    margin-top: 10px;
 }   
+
+.copyright a {
+    text-decoration: none;
+    color: white;
+}
+
+.copyright a:hover {
+    font-weight: bold;
+}
 
 
 /* ==========================
@@ -463,13 +675,13 @@ iframe {
     .nav {
         flex-direction: row;
         gap: 15px;
-        margin-top: 10px;
+        margin-top: 30px;
     }
 
     .social {
         flex-direction: row;
         justify-content: center;
-        margin-top: 5px;
+        margin-top: 10px;
         margin-right: 0px;
         gap: 15px;
     }
@@ -514,7 +726,7 @@ iframe {
     }
 
     .submit-button {
-        font-size: 16px;
+        font-size: 24px;
     }
     .contact-wrapper {
         flex-direction: column-reverse; /* Bild über das Formular setzen */
@@ -527,31 +739,44 @@ iframe {
     }
 
     .contact-image img {
-        position: relative;
-        justify-content: center;
+        width: 90%;
+        height: auto;
+        max-width: 90%;
         align-items: center;
-        width: 60%;
-        max-width: 80%;
+        justify-content: center;
+        margin-left: 20px;
+        margin-right: 20px;;
     }
 
-    .about-me {
-    width: 90%;
-    max-width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    text-align: justify;
-}
 
+    .about-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-}
+    .about-me, .about-portrait {
+        width: 100%; /* Text & Bild auf volle Breite setzen */
+        text-align: center;
+    }
 
+    /* Einheitliche Bildgröße auch in der mobilen Ansicht */
+    .about-portrait img, .about-image img {
+        width: 60%; /* Kleinere Größe für Mobile */
+        height: 60%;
+    }
 
+    /* 📌 Reihenfolge ändern: Erst Text, dann Bild */
+    .about-section-2 {
+        flex-direction: column-reverse; /* Ändert die Reihenfolge */
+        margin-top: 20px;
+    }
+
+    .about-image, .about-text {
+        width: 100%; /* Beide Elemente nehmen volle Breite ein */
+        text-align: center;
+    }
+    }
 </style>
 
 </head>
@@ -564,7 +789,7 @@ iframe {
             <ul class="nav">
                 <li><a href="#videos">VIDEOS</a></li>
                 <li><a href="#music">MUSIC</a></li>
-                <li><a href="#about">ABOUT ME</a></li>
+                <li><a href="#about">ABOUT</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="social">
@@ -577,9 +802,15 @@ iframe {
         </header>
     </section>
 
+    <!-- Slogan -->
+     <div class="videos-text">
+        <p>Creating great tunes from apparent chaos, I blend saxophone, beatbox, and digital effects to surprise and captivate. Join me on a sonic journey where every loop is a new adventure.
+        </p></div> 
+
     <!-- Video Gallery -->
     <section id="videos">
-        <h2>VIDEOS</h2>
+
+            <h2>VIDEOS</h2>
         <div class="black-background">
             <div class="video-slider">
                 <div class="video-wrapper">
@@ -598,6 +829,7 @@ iframe {
                     <button id="next">&#10095;</button>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -647,24 +879,38 @@ iframe {
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy"></iframe>
     </div>
+
+    <p class="music-gallery-text">Explore my music gallery and embark on a sonic adventure. Every performance pulses with creative energy and passion.</p>
     <!-- About Me-Sektion -->
-    <h2>ABOUT ME</h2>
+<section id="about"></section>
+<h2>ABOUT ME</h2>
+    <div class="about-wrapper">
+        <!-- Erste Reihe mit Bildern nebeneinander -->
+        <div class="about-portrait"> <!-- Erstes Bild -->
+            <img src="Jacob-Medrea-18.06.2024-GrigorescuAlina-9-scaled.jpg" alt="Portrait">
+        </div>
+        <div class="about-image"> <!-- Zweites Bild -->
+            <img src="sax.jpg" alt="Saxophon Image">
+        </div>
+    </div>
 
-    <section id="about">
-        <div class="about-me"> 
-               
-    <p>Meine Musik hat mich schon an viele Orte geführt, und dabei habe ich nicht nur neue Klänge entdeckt, sondern auch spannende Menschen getroffen, die meinen Sound geprägt haben. Mit meinem Saxofon, meiner Stimme und einer Loop-Maschine baue ich live Schichten von Sound – von funky Grooves bis zu jazzigen Melodien, die irgendwie immer in die elektronische Welt abdriften.
+    <!-- Zweite Reihe mit Texten unter den jeweiligen Bildern -->
+    <div class="about-section-2">
+        <div class="about-text"> <!-- Text unter dem ersten Bild -->
+            <p>I’m a loop artist and saxophonist, blending smooth jazz, funky grooves, and soulful melodies in real-time. Through live-looping, I build unique soundscapes, layering rhythms, harmonies, and textures as the performance unfolds.</p>
+        </div>
+        <div class="about-me"> <!-- Text unter dem zweiten Bild -->
+            <p>Each show is a spontaneous journey, where I connect with the audience and explore new sounds, blending genres and pushing musical boundaries. Every performance is an opportunity to create something fresh, vibrant, and authentic.</p>
+        </div>
+    </div>
+</section>
 
-        Aktuell arbeite ich in Berlin an meinem neuen Album. Eine Mischung aus Soul, Jazz und Funk, aber immer mit dem Blick über den Tellerrand. Jeder Song ist ein kleines Abenteuer, jeder Loop ein Moment, der hängen bleibt.
-        
-        Lass uns den Moment einfangen, den Groove fühlen und die Musik sprechen lassen.</p>
-    </section>
 
     <!-- Kontaktformular-Sektion -->
-<section id="contact">
+    <section id="contact">
     <div class="contact-wrapper">
         <div class="contact-container">
-            <h2>SIGN UP FOR UPDATES </h2>
+            <h2>Booking Inquiries</h2>
             <!-- Form action auf Formspree URL geändert -->
             <form class="contact-form" action="https://formspree.io/f/xgvaezbp" method="POST">
                 <input type="text" name="first-name" placeholder="FIRST NAME" required>
@@ -684,15 +930,17 @@ iframe {
 <footer>
 	<div class="footer">
 		<div class="logo">
-			<img src="Logo-3-white.png" width="420" height="auto" alt="Jacob Medrea">
-			<div class='footer-social'>
-                <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/medreamusic/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/medreamusic" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i class="fab fa-twitch"></i></a>
-			</div>
-            <p class="copyright">&copy; 2025 Jacob Medrea. All rights reserved.</p>
+            <img src="Logo-3-white.png" width="420" height="auto" alt="Jacob Medrea">
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/medreamusic/" target="_blank"><i id="instagram" class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/medreamusic" target="_blank"><i id="facebook" class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i id="tiktok" class="fab fa-tiktok"></i></a>
+                <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i id="twitch" class="fab fa-twitch"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Jacob Medrea. All rights reserved. <br> 
+                <a href="mailto:contact@medrea-music.de">contact@medrea-music.de</a>
+
         </div>
 </footer>
 
