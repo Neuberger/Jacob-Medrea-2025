@@ -22,81 +22,81 @@ body {
 }
 
 #about {
-    width: 90%;
-    max-width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto; /* Zentriert den gesamten Container */
+  color: white;
+  padding: 0 10%; /* Fügt optionales Padding hinzu, um den Text in mobilen Ansichten nicht zu nah am Rand zu haben */
 }
 
-.about-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Bilder oben ausgerichtet */
-    margin-bottom: 20px; /* Abstand zwischen den Abschnitten */
+/* Grid container für Desktop */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "text me"
+    "portrait image";
+  gap: 20px;
+  margin: 0 auto; /* Stellt sicher, dass das Grid zentriert bleibt */
+  width: 100%; /* Sorgt dafür, dass das Grid die volle Breite des Containers einnimmt */
 }
 
-/* Bilder nebeneinander */
+/* Text */
+.about-text {
+  grid-area: text;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 30px;
+}
+
+.about-me {
+  grid-area: me;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 30px;
+}
+
+/* Bilder */
 .about-portrait, .about-image {
-    width: 45%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-portrait img, .about-image img {
-    width: 100%; /* Bild passt sich dem Container an */
-    max-width: 60%;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid white;
+  width: 100%;
+  max-width: 60%;
+  height: auto;
+  border-radius: 50%;
+  border: 5px solid white;
 }
 
-/* Texte unter den Bildern - horizontal zentriert */
-.about-text, .about-me {
-    width: 45%;
-    color: white;
-    text-align: center;  /* Text wird zentriert */
-    line-height: 1.6;
-    font-size: 24px;
-}
-
-/* Container für die Textreihe unter den Bildern */
-.about-section-2 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px; /* Abstand zwischen den Bild- und Textzeilen */
-}
-
-/* Responsive Anpassung für kleinere Bildschirme */
+/* Responsive: Vertikal-Stack auf kleinen Bildschirmen */
 @media (max-width: 768px) {
-    .about-wrapper, .about-section-2 {
-        flex-direction: column;  /* Elemente untereinander anordnen */
-        align-items: center;       /* Inhalte zentrieren */
-    }
+  .about-grid {
+    grid-template-columns: 1fr; /* Nur eine Spalte */
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "text"
+      "portrait"
+      "me"
+      "image";
+    width: 100%; /* Die Breite bleibt bei 100% */
+  }
 
-    .about-portrait, .about-image, .about-text, .about-me {
-        width: 80%;
-    }
+  /* Optional: Anpassen der Schriftgröße und der Bildgrößen auf mobilen Geräten */
+  .about-text,
+  .about-me {
+    font-size: 20px;
+    max-width: 90%;
+  }
 
-    .about-portrait img, .about-image img {
-        width: 80%;
-    }
-}
+  .about-portrait img,
+  .about-image img {
+    width: 60%;
 
-
-/* Responsivität für kleine Bildschirme */
-@media (max-width: 768px) {
-    .about-wrapper, .about-section-2 {
-        flex-direction: column;  /* Bilder und Text werden untereinander angezeigt */
-        align-items: center;  /* Zentriert die Elemente */
-    }
-
-    .about-portrait, .about-image, .about-me, .about-text {
-        width: 80%; /* Weniger Platz für die Elemente auf kleinen Bildschirmen */
-    }
-
-    .about-portrait img, .about-image img {
-        width: 80%; /* Bilder werden kleiner, um sie auf mobilen Geräten besser anzuzeigen */
-    }
+  }
 }
 
 
@@ -739,43 +739,14 @@ iframe {
     }
 
     .contact-image img {
-        width: 90%;
-        height: auto;
-        max-width: 90%;
-        align-items: center;
-        justify-content: center;
-        margin-left: 20px;
-        margin-right: 20px;;
-    }
-
-
-    .about-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-me, .about-portrait {
-        width: 100%; /* Text & Bild auf volle Breite setzen */
-        text-align: center;
-    }
-
-    /* Einheitliche Bildgröße auch in der mobilen Ansicht */
-    .about-portrait img, .about-image img {
-        width: 60%; /* Kleinere Größe für Mobile */
-        height: 60%;
-    }
-
-    /* 📌 Reihenfolge ändern: Erst Text, dann Bild */
-    .about-section-2 {
-        flex-direction: column-reverse; /* Ändert die Reihenfolge */
-        margin-top: 20px;
-    }
-
-    .about-image, .about-text {
-        width: 100%; /* Beide Elemente nehmen volle Breite ein */
-        text-align: center;
-    }
+    width: 60%; /* Bildgröße reduzieren */
+    max-width: 80%; /* Maximalgröße des Bildes auf 80% des Containers setzen */
+    height: auto; /* Höhe automatisch anpassen, um das Seitenverhältnis zu bewahren */
+    display: block; /* Damit das Bild als Block-Element angezeigt wird */
+    margin-top: 100px;
+    margin-left: auto; /* Zentriert das Bild horizontal */
+    margin-right: auto; /* Zentriert das Bild horizontal */
+}
     }
 </style>
 
@@ -882,28 +853,25 @@ iframe {
 
     <p class="music-gallery-text">Explore my music gallery and embark on a sonic adventure. Every performance pulses with creative energy and passion.</p>
     <!-- About Me-Sektion -->
-<section id="about"></section>
-<h2>ABOUT ME</h2>
-    <div class="about-wrapper">
-        <!-- Erste Reihe mit Bildern nebeneinander -->
-        <div class="about-portrait"> <!-- Erstes Bild -->
-            <img src="Jacob-Medrea-18.06.2024-GrigorescuAlina-9-scaled.jpg" alt="Portrait">
-        </div>
-        <div class="about-image"> <!-- Zweites Bild -->
-            <img src="sax.jpg" alt="Saxophon Image">
-        </div>
-    </div>
-
-    <!-- Zweite Reihe mit Texten unter den jeweiligen Bildern -->
-    <div class="about-section-2">
-        <div class="about-text"> <!-- Text unter dem ersten Bild -->
+    <section id="about">
+        <h2>ABOUT ME</h2>
+        <div class="about-grid">
+          <!-- First Column -->
+          <div class="about-text">
             <p>I’m a loop artist and saxophonist, blending smooth jazz, funky grooves, and soulful melodies in real-time. Through live-looping, I build unique soundscapes, layering rhythms, harmonies, and textures as the performance unfolds.</p>
-        </div>
-        <div class="about-me"> <!-- Text unter dem zweiten Bild -->
+          </div>
+          <div class="about-portrait">
+            <img src="Jacob-Medrea-18.06.2024-GrigorescuAlina-9-scaled.jpg" alt="Portrait">
+          </div>
+          <!-- Second Column -->
+          <div class="about-me">
             <p>Each show is a spontaneous journey, where I connect with the audience and explore new sounds, blending genres and pushing musical boundaries. Every performance is an opportunity to create something fresh, vibrant, and authentic.</p>
+          </div>
+          <div class="about-image">
+            <img src="sax.jpg" alt="Saxophon Image">
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
 
     <!-- Kontaktformular-Sektion -->
@@ -968,7 +936,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
-	
 </body>
 </html>
