@@ -73,10 +73,27 @@
 /* Nike Logo */
 .logo-nike {
     height: 40px;
-    margin-right: 20px;
+    margin-right: 80px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* Grundstil für alle Icons */
+.nav-social a {
+    font-size: 20px; /* Größe des Icons */
+    margin-left: 10px;
+    padding: 0px;
+    display: inline-block;
+    text-align: center;
+    transition: color 0.3s ease; /* Übergangseffekt für die Farbänderung */
+}
+
+/* Standardfarbe der Icons - Weiß */
+.nav-social i {
+    color: black; /* Alle Icons sind standardmäßig weiß */
+    display: inline-block;
+}
+
 .nav-secondary-news {
     display: flex;
     align-items: center;
@@ -197,6 +214,15 @@
 @media (max-width: 960px) {
     .nav-news-list {
         display: none;
+    }
+    .nav-social {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: none;
+    }
+    .logo-nike {
+        margin-right: 0px;
     }
 }
 
@@ -386,9 +412,11 @@ video {
     z-index: -1; /* Das Video bleibt hinter dem restlichen Inhalt */
 }
 
+/* Quadratische Galerie */
+
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Drei gleich große Spalten */
+    grid-template-columns: repeat(2, 1fr); /* Drei gleich große Spalten */
     gap: 20px; /* Abstand zwischen den Bildern */
     width: 100%; /* Passt sich der Breite des Videos an */
     max-width: 100%; /* Keine Überbreite */
@@ -403,6 +431,12 @@ video {
     object-fit: cover; /* Optional für konsistente Darstellung */
 }
 
+/* Media Query für Bildschirmgrößen bis 600px */
+@media (max-width: 600px) {
+    .image-gallery {
+        grid-template-columns: 1fr; /* Nur eine Spalte, Bilder untereinander */
+    }
+}
 
 /* Horizontale Galerie mit exakt 3 Bildern pro Ansicht */
 .horizontal-gallery {
@@ -411,7 +445,7 @@ video {
     grid-auto-columns: calc((100vw - 80px) / 3); /* 3 Bilder sichtbar, inklusive 20px Seitenabstand */
     gap: 20px; /* Abstand zwischen den Bildern */
     overflow-x: auto; /* Ermöglicht horizontales Scrollen */
-    padding: 20px 20px; /* 20px Abstand links & rechts */
+    padding: 20px 0px; /* 20px Abstand links & rechts */
     margin: 0 20px;
     scroll-snap-type: x mandatory; /* Snap-Scrolling */
     box-sizing: border-box;
@@ -435,25 +469,6 @@ video {
     display: block;
 }
 
-/* Stil für die Buttons */
-.overlay-button {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
-    text-align: center;
-}
-
 /* Scrollbar-Styling */
 .horizontal-gallery::-webkit-scrollbar {
     height: 8px;
@@ -466,6 +481,21 @@ video {
 
 .horizontal-gallery::-webkit-scrollbar-track {
     background-color: transparent;
+}
+
+/* Media Query für Bildschirmgrößen bis 600px */
+@media (max-width: 960px) {
+    .horizontal-gallery {
+    display: grid;
+    grid-auto-flow: column; /* Horizontale Anordnung */
+    grid-auto-columns: calc((100vw - 80px) / 2); /* 3 Bilder sichtbar, inklusive 20px Seitenabstand */
+    gap: 20px; /* Abstand zwischen den Bildern */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+    padding: 20px 0px; /* 20px Abstand links & rechts */
+    margin: 0 20px;
+    scroll-snap-type: x mandatory; /* Snap-Scrolling */
+    box-sizing: border-box;
+}
 }
 
 
@@ -483,19 +513,20 @@ video {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 .logo img {
-    max-width: 200px;
+    max-width: 100px;
     height: auto;
 }
 
 
 /* Grundstil für alle Icons */
 .footer-social a {
-    font-size: 30px; /* Größe des Icons */
-    padding: 10px;
+    font-size: 15px; /* Größe des Icons */
+    padding: 5px;
     display: inline-block;
     text-align: center;
     transition: color 0.3s ease; /* Übergangseffekt für die Farbänderung */
@@ -539,7 +570,7 @@ video {
 #tiktok {
     position: relative;
     display: inline-block;
-    font-size: 30px; /* Gleiche Font Awesome Icon-Größe */
+    font-size: 15px; /* Gleiche Font Awesome Icon-Größe */
     color: black; /* Farbe des TikTok-Icons */
 }
 
@@ -568,10 +599,6 @@ video {
 #tiktok:hover::after {
     visibility: visible; /* PNG wird sichtbar */
 }
-
-
-
-
 
 .copyright {
     color: black;
@@ -617,6 +644,13 @@ video {
     <!-- Zweite Navigationsleiste im Header -->
     <header class="nav-secondary-news">
         <img src="logo-001.svg" alt="Nike Logo" class="logo-nike">
+        <div class="nav-social">
+            <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/medreamusic/" target="_blank"><i id="instagram" class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/medreamusic" target="_blank"><i id="facebook" class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@jacobmedrea" target="_blank"><i id="tiktok" class="fab fa-tiktok"></i></a>
+            <a href="https://www.twitch.tv/jacobmedreamusic" target="_blank"><i id="twitch" class="fab fa-twitch"></i></a>
+        </div>
         <ul class="nav-news-list">
             <li>
                 <a href="#">Videos</a>
@@ -691,7 +725,7 @@ video {
             <!-- Suchfeld am rechten Rand -->
     <div class="search-container">
         <button class="search-button">
-            <img src="search-icon.svg" alt="Search Icon">
+            <img src="images/vector_search_icon.svg" alt="Search Icon">
         </button>
         </button>
         <input type="text" class="search-input" placeholder="Suche...">
@@ -721,13 +755,16 @@ video {
     <video src="techno.mp4" autoplay muted loop></video>
     <section class="image-gallery">
         <div class="image-wrapper">
-            <img src="nike-just-do-it-2.jpg" alt="Bild 1" class="gallery-image">
+            <img src="jacob-1x1-001.jpg" alt="Bild 1" class="gallery-image">
         </div>
         <div class="image-wrapper">
-            <img src="nike-just-do-it-3.jpg" alt="Bild 2" class="gallery-image">
+            <img src="jacob-1x1-002.jpg" alt="Bild 2" class="gallery-image">
         </div>
         <div class="image-wrapper">
-            <img src="nike-just-do-it-4.jpg" alt="Bild 3" class="gallery-image">
+            <img src="jacob-1x1-004.jpg" alt="Bild 3" class="gallery-image">
+        </div>        
+        <div class="image-wrapper">
+            <img src="jacob-1x1-003.jpg" alt="Bild 3" class="gallery-image">
         </div>
     </section>
 
@@ -742,35 +779,27 @@ video {
 <section class="horizontal-gallery">
     <div class="horizontal-image-wrapper">
         <img src="thumbnail-jacob-slider.jpg" alt="Bild 1" class="horizontal-gallery-image">
-        <button class="overlay-button">Air Max</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="thumbnail-clouds-slider.jpg" alt="Bild 2" class="horizontal-gallery-image">
-        <button class="overlay-button">Y2K</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="thumbnail-birds-slider.jpg" alt="Bild 3" class="horizontal-gallery-image">
-        <button class="overlay-button">Air Force 1</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="thumbnail-birds-slider.jpg" alt="Bild 4" class="horizontal-gallery-image">
-        <button class="overlay-button">Field General</button>
     </div>        
     <div class="horizontal-image-wrapper">
         <img src="sneaker-5.png" alt="Bild 5" class="horizontal-gallery-image">
-        <button class="overlay-button">Air Jordan</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="sneaker-6.png" alt="Bild 6" class="horizontal-gallery-image">
-        <button class="overlay-button">Pegasus</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="sneaker-7.png" alt="Bild 7" class="horizontal-gallery-image">
-        <button class="overlay-button">Metcon</button>
     </div>
     <div class="horizontal-image-wrapper">
         <img src="sneaker-8.png" alt="Bild 8" class="horizontal-gallery-image">
-        <button class="overlay-button">Mercurial</button>
     </div>
 </section>
 
