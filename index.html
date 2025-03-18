@@ -270,23 +270,17 @@
     box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1); /* Glow-Effekt */
 }
 
-/* Hintergrund-Video */
-.video-container {
-    position: fixed; /* Fixiert das Video, damit es den Hintergrund bildet */
+/* Video als Hintergrund */
+video {
+    position:relative; /* Fixiert das Video im Hintergrund */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden; /* Verhindert, dass das Video über den Bildschirm hinausgeht */
-    z-index: -1; /* Hält das Video hinter allen anderen Elementen */
+    width: 100%; /* Deckt die volle Breite ab */
+    max-width: 100%;
+    height: auto; /* Deckt die volle Höhe des Viewports ab */
+    object-fit: cover; /* Video skaliert, um den Bildschirm auszufüllen, ohne Verzerrung */
+    z-index: -1; /* Das Video bleibt hinter dem restlichen Inhalt */
 }
-
-video {
-    width: 100vw; /* Volle Breite */
-    height: 100vh; /* Volle Höhe */
-    object-fit: cover; /* Skaliert das Video, um den gesamten Bildschirm zu füllen */
-}
-
 
 /* Container für die Bilder */
 .image-gallery {
@@ -640,12 +634,8 @@ video {
 
     <main>
             <!-- Video als Hintergrund -->
-            <video autoplay loop controls>
-                <source src="techno.mp4" type="video/mp4">
-                Dein Browser unterstützt kein HTML5-Video.
-            </video>
-            <button id="sound-toggle">🔊 Ton einschalten</button>    
-            <button class="video-button">Dn8 anzeigen</button>
+    <video src="techno.mp4" autoplay muted loop></video>
+    <button class="video-button">Dn8 anzeigen</button>
     <section class="image-gallery">
         <div class="image-wrapper">
             <img src="nike-just-do-it-2.jpg" alt="Bild 1" class="gallery-image">
@@ -724,25 +714,5 @@ video {
                     <a href="mailto:contact@medrea-music.de">contact@medrea-music.de</a>
     
             </div>
-    </footer>
-    <script>
-        const video = document.getElementById("bg-video");
-        const btn = document.getElementById("sound-toggle");
-    
-        btn.addEventListener("click", () => {
-            if (video.muted) {
-                video.muted = false;
-                btn.textContent = "🔇 Ton ausschalten";
-            } else {
-                video.muted = true;
-                btn.textContent = "🔊 Ton einschalten";
-            }
-        });
-    </script>
-    </body>
-    </html>
-    
-</body>
-
-    
+    </footer></body>
 </html>
