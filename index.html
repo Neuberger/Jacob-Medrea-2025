@@ -16,11 +16,11 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            background-color: #000;
+            background-color: white;
         }
 
         /* Erste Navigationsleiste */
-        .header-bar {
+       .header-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -69,14 +69,22 @@
         }
 
 /* Zweite Navigationsleiste */
+
+/* Nike Logo */
+.logo-nike {
+    height: 40px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .nav-secondary-news {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    padding: 10px 50px;
+    padding: 0 20px;
     position: relative;
-    height: 50px;
+    height: 60px;
 }
 
 /* Suchfeld Container */
@@ -85,54 +93,55 @@
     align-items: center;
     justify-content: center;
     position: relative; /* Damit der Button sich über das Suchfeld legen kann */
-    width: auto; /* Automatische Breite für den Container */
-    margin-left: auto; /* Positioniert das Suchfeld am rechten Rand */
+    width: auto;
+    margin-left: auto;
 }
 
 /* Suchfeld Eingabe */
 .search-input {
-    width: 10px;
+    width: 150px;
     height: 20px;
-    padding: 5px 10px 5px 40px;  /* Erhöht das linke Padding, um die Eingabe nach rechts zu verschieben */
+    padding: 5px 10px 5px 40px;
     font-size: var(--font-small);
     border: 1px solid #ccc;
     border-radius: 50px;
-    width: 150px;                /* Passt die Breite des Suchfelds an */
-    position: relative;          /* Wichtig für das korrekte Verhalten des überlappenden Buttons */
+    position: relative;
+    transition: width 0.3s ease-in-out;
 }
 
 /* Button (Icon) */
 .search-button {
     border: none;
-    border-radius: 50%;          /* Macht den Button rund */
+    border-radius: 50%;
     cursor: pointer;
-    position: absolute;          /* Positioniert das Icon über dem Eingabefeld */
-    left: 0px;                  /* Positioniert das Icon leicht nach innen, damit es sich überlappt */
-    z-index: 1;                  /* Sicherstellen, dass der Button über dem Eingabefeld bleibt */
-    width: 30px;                 /* Feste Breite für den Button */
-    height: 30px;                /* Feste Höhe für den Button */
-    display: flex;               /* Flexbox für das Icon */
-    justify-content: center;     /* Zentriert das Icon horizontal */
-    align-items: center;         /* Zentriert das Icon vertikal */
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(225, 225, 225);
 }
 
 /* Hover-Effekt für den Button */
 .search-button:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe ändern beim Hover */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Hover-Effekt für das Suchfeld */
 .search-input:hover {
-    background-color: rgba(0, 0, 0, 0.2); /* Hintergrundfarbe ändern beim Hover */
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Wenn das Icon ein SVG ist */
 .search-button svg {
-    width: 30px;                 /* Größe des Icons */
-    height: 30px;                /* Größe des Icons */
+    width: 30px;
+    height: 30px;
 }
 
-
+/* Navigationsliste */
 .nav-news-list {
     list-style: none;
     display: flex;
@@ -152,7 +161,7 @@
     font-size: var(--font-normal);
     text-decoration: none;
     color: black;
-    font-weight:500;
+    font-weight: 500;
 }
 
 .nav-news-list a:hover {
@@ -160,18 +169,135 @@
     padding-bottom: 2px;
 }
 
+/* RESPONSIVE DESIGN */
 
-        .logo-nike {
-            height: 40px;
-            margin-right: 40px;
-            margin-top: 10px;
-            margin-bottom:10px;
-        }
+/* Bei max. 1200px: Suchfeld einklappen (nur noch Icon sichtbar) */
+@media (max-width: 1200px) {
+    .search-input {
+        width: 0;
+        padding: 0;
+        border: none;
+        visibility: hidden;
+    }
+    
+    .search-container {
+        width: 30px; /* Nur noch Platz für das Icon */
+    }
+
+    .search-button {
+        position: relative; /* Zentriert das Icon */
+        left: auto;
+        width: 30px;
+        height: 30px;
+        background: none;
+    }
+}
+
+/* Bei max. 960px: Navigationsliste ausblenden */
+@media (max-width: 960px) {
+    .nav-news-list {
+        display: none;
+    }
+}
+
+/* Container für den Hamburger-Button */
+.hamburger-menu {
+    display: none; /* Standardmäßig ausgeblendet */
+    position: relative; /* Für das Hover-Overlay */
+    width: 30px;
+    height: 30px;
+    background: rgb(235, 235, 235);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Vertikale Ausrichtung der Striche */
+    gap: 4px; /* Gleicht die Abstände zwischen den Strichen aus */
+}
+
+/* Hintergrund-Kreis für den Hover-Effekt */
+.hamburger-menu::before {
+    content: "";
+    position: absolute;
+    width: 30px; /* Größe des Kreises */
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Linien des Hamburger-Menüs mit abgerundeten Ecken */
+.hamburger-menu span {
+    display: block;
+    width: 15px;
+    height: 1px;
+    background-color: rgb(50, 50, 50);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px; /* Abrundung der Ecken der Striche */
+}
+
+/* Hover-Effekt nur auf den Kreis */
+.hamburger-menu:hover::before {
+    background-color: rgba(0, 0, 0, 0.5); /* Grauer Kreis */
+}
+
+/* Mobile Version aktivieren */
+@media (max-width: 960px) {
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+
+/* Mobile Navigation (versteckt) */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 10px 0;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav ul li {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.mobile-nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    display: block;
+}
+
+/* Mobile Version aktivieren */
+@media (max-width: 960px) {
+    .hamburger-menu {
+        display: flex;
+        background: none;
+    }
+
+    .mobile-nav.active {
+        display: block;
+    }
+}
+
 
 /* Dropdown-Menü */
 .dropdown-menu {
     position: fixed; /* Fixiert das Menü am Bildschirm */
-    margin-top:25px;
+    margin-top:20px;
     left: 0; /* Positioniert das Menü am linken Bildschirmrand */
     width: 100vw; /* Volle Breite des Menüs */
     background-color: rgba(0,0,0, 0.5);
@@ -248,28 +374,6 @@
 
 }
 
-.video-button {
-    position: absolute;
-    top: 66.67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 15px 30px;
-    font-size: var(--font-normal);
-    font-weight: 800;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    z-index: 1;
-    transition: all 0.3s ease; /* Sanfte Übergänge für alle Änderungen */
-}
-
-.video-button:hover {
-    background-color: rgb(225, 225, 225); /* Hintergrundfarbe beim Hover */
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1); /* Glow-Effekt */
-}
-
 /* Video als Hintergrund */
 video {
     position:relative; /* Fixiert das Video im Hintergrund */
@@ -282,125 +386,92 @@ video {
     z-index: -1; /* Das Video bleibt hinter dem restlichen Inhalt */
 }
 
-/* Container für die Bilder */
 .image-gallery {
-    display: flex; /* Flexbox für die Verteilung der Bilder */
-    justify-content: space-between; /* Verteilung der Bilder über die gesamte Breite */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Drei gleich große Spalten */
     gap: 20px; /* Abstand zwischen den Bildern */
-    margin-left: 50px;
-    margin-right:50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    box-sizing: border-box; /* Sicherstellen, dass das Padding die Breite des Containers nicht beeinflusst */
+    width: 100%; /* Passt sich der Breite des Videos an */
+    max-width: 100%; /* Keine Überbreite */
+    padding: 20px; /* Abstand zum Rand */
+    box-sizing: border-box; /* Verhindert Größenverschiebung durch Padding */
+}
+
+/* Stellt sicher, dass die Bilder responsiv sind */
+.image-gallery img {
+    width: 100%; /* Jedes Bild füllt seine Spalte */
+    height: auto;
+    object-fit: cover; /* Optional für konsistente Darstellung */
 }
 
 
-.image-wrapper {
-    position: relative; /* Ermöglicht das Positionieren der Buttons über den Bildern */
-    flex: 1; /* Jedes Bild nimmt gleichmäßig den verfügbaren Platz ein */
-    min-width: 300px; /* Minimale Breite für jedes Bild */
-    position: relative; /* Ermöglicht die absolute Positionierung des Buttons */
-    box-sizing: border-box; /* Sicherstellen, dass Padding und Border zur Gesamtbreite zählen */
+/* Horizontale Galerie mit exakt 3 Bildern pro Ansicht */
+.horizontal-gallery {
+    display: grid;
+    grid-auto-flow: column; /* Horizontale Anordnung */
+    grid-auto-columns: calc((100vw - 80px) / 3); /* 3 Bilder sichtbar, inklusive 20px Seitenabstand */
+    gap: 20px; /* Abstand zwischen den Bildern */
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen */
+    padding: 20px 20px; /* 20px Abstand links & rechts */
+    margin: 0 20px;
+    scroll-snap-type: x mandatory; /* Snap-Scrolling */
+    box-sizing: border-box;
 }
 
-.gallery-image {
-    width: 100%; /* Jedes Bild nimmt die volle Breite des Containers ein */
-    height: auto; /* Höhe wird automatisch angepasst */
-    object-fit: cover; /* Stellt sicher, dass das Bild gut skaliert */
+/* Jedes Bild in der Galerie */
+.horizontal-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+/* Bilder füllen die gesamte Grid-Zelle */
+.horizontal-gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Stil für die Buttons */
 .overlay-button {
-    width: 150px;
-    position: absolute; /* Positioniert den Button absolut über dem Bild */
-    top: 90%; /* Positioniert den Button vertikal in der Mitte */
-    left: 75%; /* Positioniert den Button horizontal in der Mitte */
-    transform: translate(-50%, -50%); /* Zentriert den Button exakt */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
     color: black;
     border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 75px;
+    padding: 10px 20px;
+    border-radius: 50px;
     font-size: 16px;
-    z-index: 1; /* Stellt sicher, dass der Button über dem Bild liegt */
-    transition: background-color 0.3s; /* Sanfte Übergangseffekte */
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
 }
 
-.overlay-button:hover {
-    background-color: rgb(225, 225, 225); /* Hintergrundfarbe beim Hover */
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1); /* Glow-Effekt */
-}
-
-/* Zweite Galerie mit horizontalem Scrollen */
-.horizontal-gallery {
-    display: flex; /* Flexbox für die horizontale Anordnung der Bilder */
-    overflow-x: auto; /* Ermöglicht das horizontale Scrollen */
-    gap: 10px; /* Abstand zwischen den Bildern */
-    padding: 10px 0; /* Nur oben und unten Abstand */
-    margin: 0 auto; /* Zentriert den Container horizontal */
-    margin-top:10px; /* Abstand zum oberen Abschnitt */
-    margin-bottom: 60px; /* Abstand zum unteren Abschnitt */
-    scroll-snap-type: x mandatory; /* Aktiviert das Snap-Scrolling für den Slider */
-    width: calc(100% - 100px); /* Verhindert, dass der Container breiter als der Bildschirm wird und lässt 40px Abstand an beiden Seiten */
-    box-sizing: border-box; /* Verhindert, dass Padding und Margin den Container vergrößern */
-}
-
-
-
-/* Wrapper für jedes Bild in der horizontalen Galerie */
-.horizontal-image-wrapper {
-    position: relative; /* Ermöglicht die Positionierung des Buttons über dem Bild */
-    flex: 0 0 auto; /* Verhindert, dass die Bilder skaliert werden und sorgt dafür, dass sie ihre ursprüngliche Breite behalten */
-    width: 33.33%; /* Jedes Bild nimmt 1/3 des Containers ein, sodass immer 3 Bilder sichtbar sind */
-    scroll-snap-align: start; /* Stellt sicher, dass die Bilder beim Scrollen an einer Position "einrasten" */
-    box-sizing: border-box; /* Verhindert ungewollte Überlappung */
-}
-
-/* Stil für jedes Bild in der horizontalen Galerie */
-.horizontal-gallery-image {
-    width: 100%; /* Bild nimmt die volle Breite des Containers ein */
-    height: auto; /* Höhe wird automatisch angepasst */
-    object-fit: cover; /* Stellt sicher, dass das Bild gut skaliert */
-}
-
-/* Stil für die Buttons, die über den Bildern erscheinen */
-.overlay-button {
-    position: absolute; /* Positioniert den Button relativ zum übergeordneten Bild */
-    top: 80%; /* Positioniert den Button vertikal in der Mitte */
-    left: 25%; /* Positioniert den Button horizontal in der Mitte */
-    transform: translate(-50%, -50%); /* Korrigiert die Position, um den Button exakt zu zentrieren */
-    background-color: white; /* Hintergrundfarbe des Buttons */
-    color: black; /* Textfarbe */
-    border: none; /* Entfernt die Standardborder */
-    padding: 10px 20px; /* Fügt dem Button etwas Innenabstand hinzu */
-    border-radius: 50px; /* Runde Ecken für den Button */
-    font-size: 16px; /* Schriftgröße */
-    cursor: pointer; /* Zeigt einen Mauszeiger an, wenn der Benutzer über den Button fährt */
-    opacity: 1; /* Der Button ist immer sichtbar */
-    transition: opacity 0.3s ease; /* Sanfter Übergang */
-    white-space: nowrap; /* Verhindert, dass der Text umbricht und sorgt dafür, dass der Button die nötige Breite bekommt */
-    text-align: center; /* Sorgt dafür, dass der Text innerhalb des Buttons zentriert ist */
-    width: auto; /* Verhindert eine feste Breite und passt sich an den Text an */
-    height: auto; /* Verhindert eine feste Höhe */
-}
-
-/* Optional: Entfernt den Standard-Scrollbar-Stil */
+/* Scrollbar-Styling */
 .horizontal-gallery::-webkit-scrollbar {
-    height: 8px; /* Die Höhe der horizontalen Scrollbar */
+    height: 8px;
 }
 
 .horizontal-gallery::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5); /* Der Schieber (Thumb) der Scrollbar */
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1); /* Glow-Effekt */
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.1);
 }
 
 .horizontal-gallery::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
+
 .fullscreen {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* ==========================
@@ -416,16 +487,15 @@ video {
 }
 
 .logo img {
-    max-width: 250px;
+    max-width: 200px;
     height: auto;
-    filter: drop-shadow(5px 5px 20px rgba(255, 255, 255, 0.3)); /* Weißer Glow */
 }
 
 
 /* Grundstil für alle Icons */
 .footer-social a {
     font-size: 30px; /* Größe des Icons */
-    padding: 20px;
+    padding: 10px;
     display: inline-block;
     text-align: center;
     transition: color 0.3s ease; /* Übergangseffekt für die Farbänderung */
@@ -433,7 +503,7 @@ video {
 
 /* Standardfarbe der Icons - Weiß */
 .footer-social i {
-    color: white; /* Alle Icons sind standardmäßig weiß */
+    color: black; /* Alle Icons sind standardmäßig weiß */
     display: inline-block;
 }
 
@@ -445,7 +515,7 @@ video {
 /* Hintergrund für Instagram (Instagram-Gradient) */
 #instagram {
     background: transparent; /* Keine Hintergrundfarbe beim normalen Zustand */
-    color: white; /* Standardfarbe der Icons - weiß */
+    color: black; /* Standardfarbe der Icons - weiß */
 }
 
 #instagram:hover {
@@ -470,7 +540,7 @@ video {
     position: relative;
     display: inline-block;
     font-size: 30px; /* Gleiche Font Awesome Icon-Größe */
-    color: #fff; /* Farbe des TikTok-Icons */
+    color: black; /* Farbe des TikTok-Icons */
 }
 
 /* PNG-Bild wird als Hintergrundbild verwendet */
@@ -481,7 +551,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('tiktok-hover.png'); /* Dein PNG-Bild */
+    background-image: url('tiktok-hover-2.png'); /* Dein PNG-Bild */
     background-size: contain; /* Skaliert das PNG, sodass es innerhalb des Containers bleibt */
     background-position: center;
     background-repeat: no-repeat;
@@ -504,14 +574,14 @@ video {
 
 
 .copyright {
-    color: white;
+    color: black;
     text-align: center;
     font-size: 14px;
 }   
 
 .copyright a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .copyright a:hover {
@@ -621,13 +691,27 @@ video {
             <!-- Suchfeld am rechten Rand -->
     <div class="search-container">
         <button class="search-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="16" y1="16" x2="21" y2="21"></line>
-            </svg>
+            <img src="images/Vector_search_icon.svg" alt="Search Icon">
+        </button>
         </button>
         <input type="text" class="search-input" placeholder="Suche...">
     </div>
+    <!-- Hamburger-Menü -->
+<button class="hamburger-menu" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- Mobile Navigation (ausgeblendet) -->
+<nav class="mobile-nav">
+    <ul>
+        <li><a href="#">Start</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Über uns</a></li>
+    </ul>
+</nav>
     </header>
     
 
@@ -635,19 +719,15 @@ video {
     <main>
             <!-- Video als Hintergrund -->
     <video src="techno.mp4" autoplay muted loop></video>
-    <button class="video-button">Dn8 anzeigen</button>
     <section class="image-gallery">
         <div class="image-wrapper">
             <img src="nike-just-do-it-2.jpg" alt="Bild 1" class="gallery-image">
-            <button class="overlay-button">Jetzt entdecken</button>
         </div>
         <div class="image-wrapper">
             <img src="nike-just-do-it-3.jpg" alt="Bild 2" class="gallery-image">
-            <button class="overlay-button">Jetzt entdecken</button>
         </div>
         <div class="image-wrapper">
             <img src="nike-just-do-it-4.jpg" alt="Bild 3" class="gallery-image">
-            <button class="overlay-button">Jetzt entdecken</button>
         </div>
     </section>
 
@@ -702,7 +782,7 @@ video {
     <footer>
         <div class="footer">
             <div class="logo">
-                <img src="logo-003.svg" width="420" height="auto" alt="Jacob Medrea">
+                <img src="logo-001.svg" alt="Jacob Medrea">
                 <div class="footer-social">
                     <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/medreamusic/" target="_blank"><i id="instagram" class="fab fa-instagram"></i></a>
@@ -714,5 +794,11 @@ video {
                     <a href="mailto:contact@medrea-music.de">contact@medrea-music.de</a>
     
             </div>
-    </footer></body>
+    </footer>
+<!-- JavaScript am Ende vor dem </body>-Tag -->
+<script>
+    function toggleMenu() {
+        document.querySelector(".mobile-nav").classList.toggle("active");
+    }
+</script>   </body>
 </html>
