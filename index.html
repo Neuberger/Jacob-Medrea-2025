@@ -72,10 +72,11 @@
 
 /* Nike Logo */
 .logo-nike {
-    height: 40px;
-    margin-right: 80px;
+    width: 80px;
+    margin-right: 60px;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: ;
 }
 
 /* Grundstil für alle Icons */
@@ -90,7 +91,7 @@
 
 /* Standardfarbe der Icons - Weiß */
 .nav-social i {
-    color: black; /* Alle Icons sind standardmäßig weiß */
+    color: white; /* Alle Icons sind standardmäßig weiß */
     display: inline-block;
 }
 
@@ -98,8 +99,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(220,220,220);
-    padding: 0 20px;
+    background-color: rgb(0,0,0);
+    padding: 0 60px;
     position: relative;
     height: 60px;
 }
@@ -139,7 +140,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(200, 200, 200);
 }
 
 /* Hover-Effekt für den Button */
@@ -149,7 +150,7 @@
 
 /* Hover-Effekt für das Suchfeld */
 .search-input:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Wenn das Icon ein SVG ist */
@@ -177,7 +178,7 @@
 .nav-news-list a {
     font-size: var(--font-normal);
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: 500;
 }
 
@@ -198,7 +199,7 @@
     }
     
     .search-container {
-        width: 30px; /* Nur noch Platz für das Icon */
+        width: 50px; /* Nur noch Platz für das Icon */
     }
 
     .search-button {
@@ -207,6 +208,8 @@
         width: 30px;
         height: 30px;
         background: none;
+        background-color: rgb(200, 200, 200);
+        margin-right: 20px;
     }
 }
 
@@ -513,13 +516,13 @@ video {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 0px;
 }
 
 .logo img {
-    max-width: 100px;
-    height: auto;
+    height: 40px;
+    margin-bottom: 10px;
 }
 
 
@@ -534,7 +537,7 @@ video {
 
 /* Standardfarbe der Icons - Weiß */
 .footer-social i {
-    color: black; /* Alle Icons sind standardmäßig weiß */
+    color: white; /* Alle Icons sind standardmäßig weiß */
     display: inline-block;
 }
 
@@ -546,7 +549,6 @@ video {
 /* Hintergrund für Instagram (Instagram-Gradient) */
 #instagram {
     background: transparent; /* Keine Hintergrundfarbe beim normalen Zustand */
-    color: black; /* Standardfarbe der Icons - weiß */
 }
 
 #instagram:hover {
@@ -571,7 +573,6 @@ video {
     position: relative;
     display: inline-block;
     font-size: 15px; /* Gleiche Font Awesome Icon-Größe */
-    color: black; /* Farbe des TikTok-Icons */
 }
 
 /* PNG-Bild wird als Hintergrundbild verwendet */
@@ -582,7 +583,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('tiktok-hover-2.png'); /* Dein PNG-Bild */
+    background-image: url('tiktok-hover.png'); /* Dein PNG-Bild */
     background-size: contain; /* Skaliert das PNG, sodass es innerhalb des Containers bleibt */
     background-position: center;
     background-repeat: no-repeat;
@@ -601,14 +602,14 @@ video {
 }
 
 .copyright {
-    color: black;
+    color: white;
     text-align: center;
     font-size: 14px;
 }   
 
 .copyright a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .copyright a:hover {
@@ -643,7 +644,7 @@ video {
 
     <!-- Zweite Navigationsleiste im Header -->
     <header class="nav-secondary-news">
-        <img src="logo-001.svg" alt="Nike Logo" class="logo-nike">
+        <img src="logo-002-white.svg" alt="Nike Logo" class="logo-nike">
         <div class="nav-social">
             <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>
             <a href="https://www.instagram.com/medreamusic/" target="_blank"><i id="instagram" class="fab fa-instagram"></i></a>
@@ -811,7 +812,7 @@ video {
     <footer>
         <div class="footer">
             <div class="logo">
-                <img src="logo-001.svg" alt="Jacob Medrea">
+                <img src="logo-002-white.svg" alt="Jacob Medrea">
                 <div class="footer-social">
                     <a href="https://www.youtube.com/@JacobMedrea" target="_blank"><i id="youtube" class="fab fa-youtube"></i></a>
                     <a href="https://www.instagram.com/medreamusic/" target="_blank"><i id="instagram" class="fab fa-instagram"></i></a>
